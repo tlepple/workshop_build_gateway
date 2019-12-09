@@ -22,9 +22,5 @@ resource "google_compute_instance" "master" {
         }
     }
     
-#    service_account {
-#        email              = "tlepple@gcp-se.iam.gserviceaccount.com"
-#        scopes             = [ "https://www.googleapis.com/auth/cloud-platform" ]
-#    }
 
 }
