@@ -8,4 +8,4 @@ subnet_name = "subnet2"
 cidrs = ["10.127.0.0/20","10.128.2.0/9"]
 vm_master_name = "master-instance"
 vm_instance_type = "f1-micro"
-vm_image_id = "cos-cloud/cos-stable"
+vm_image_id = "centos-cloud/centos-7"
