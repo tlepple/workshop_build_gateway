@@ -38,17 +38,17 @@ variable "cidrs" {
     type = list
 }
 
-#variable "vm_instance_name" {
-#    description = "VM Instance Name"
-#}
+variable "vm_master_name" {
+    description = "VM Instance Master Name"
+}
 
-#variable "vm_instance_type" {
-#    description = "VM Instance Type"
-#}
+variable "vm_instance_type" {
+    description = "VM Instance Type"
+}
 
-#variable "vm_image_id" {
-#    description = "Image ID"
-#}
+variable "vm_image_id" {
+    description = "Image ID"
+}
 
 #variable "my_public_ip" {
 #    description = "Public IP Address of machine that built the instance"
