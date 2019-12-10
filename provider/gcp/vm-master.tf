@@ -2,6 +2,11 @@ resource "google_compute_address" "static" {
     name = "${var.owner_name}-master-static-address"
 }
 
+resource "google_compute_disk" "cdsw_disk" {
+    name = "${var.owner_name}-master-cdsw-disk"
+    size = 10
+}
+
 resource "google_compute_instance" "master" {
     name         = "${var.owner_name}-${var.vm_master_name}"
     machine_type = var.vm_instance_type
@@ -12,6 +17,10 @@ resource "google_compute_instance" "master" {
             image = var.vm_image_id
             size = 20
         }
+    }
+
+    attached_disk {
+        source = google_compute_disk.cdsw_disk.name
     }
 
     network_interface {
