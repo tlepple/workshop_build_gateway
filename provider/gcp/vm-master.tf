@@ -10,8 +10,13 @@ resource "google_compute_disk" "cdsw_disk" {
 resource "google_compute_instance" "master" {
     name         = "${var.owner_name}-${var.vm_master_name}"
     machine_type = var.vm_instance_type
-    tags = ["master"]
-    
+    tags         = ["master"]
+    labels       = { 
+                     "owner" = var.owner_name 
+                     "project" = "personal_development"
+                     "enddate" = "permanent"
+                   }
+ 
     boot_disk {
         initialize_params {
             image = var.vm_image_id
