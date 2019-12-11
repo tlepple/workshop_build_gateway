@@ -5,10 +5,9 @@ BASE_DIR=$(cd $(dirname $0); pwd -L)
 # get the public ip address of this host
 GET_PUBLIC_IP=`curl -s ifconfig.me`
 
-# set the public ip cidr as a variable
-export TF_VAR_mypublicip_cidr="${GET_PUBLIC_IP}/32"
-
-#echo ${TF_VAR_mypublicip_cidr}
+# set the public ip as a variable
+export TF_VAR_mypublicip="${GET_PUBLIC_IP}"
 
 #  call the terraform build
+log "Build out GCP env via Terraform"
 terraform apply -var-file var-properties.tfvars

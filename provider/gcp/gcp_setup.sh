@@ -17,5 +17,6 @@ install_jq_cli
 install_terraform_cli
 
 #####################################################
-#       Step 3: 
+#       Step 3: build out GCP env
 #####################################################
+. $starting_dir/provider/gcp/assemble.sh

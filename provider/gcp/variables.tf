@@ -50,10 +50,10 @@ variable "vm_image_id" {
     description = "Image ID"
 }
 
-#variable "my_public_ip" {
-#    description = "Public IP Address of machine that built the instance"
-#}
-
-variable "mypublicip_cidr" {
-     description = "Public IP Address cidr to set for access from build host"
+variable "my_publicip" {
+    description = "Public IP Address of machine that built the instance"
 }
+
+#variable "mypublicip_cidr" {
+#     description = "Public IP Address cidr to set for access from build host"
+#}
