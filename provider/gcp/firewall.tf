@@ -46,5 +46,5 @@ resource "google_compute_firewall" "allow-remote-static" {
         ports    = ["0-65535"]
     }
 
-    source_ranges = [ "${var.mypublicip}/32" ]
+    source_ranges = [ "${var.my_publicip}/32" ]
 }
