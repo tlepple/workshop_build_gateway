@@ -54,9 +54,9 @@ cd /app/workshop_build_gateway
 ### Cloud Provider Specific Steps:
 ---
 
+| Provider         | Readme Document  |
 | ---------------- | ---------------- |
-| Provider | Readme Document |
-| ---------------- | ---------------- |
-| GCP | [Setup Steps](./gcp_readme.md)
-| ---------------- | ---------------- |
+| GCP              | [Setup Steps](./gcp_readme.md)|
+
+---
 
