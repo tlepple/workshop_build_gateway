@@ -5,6 +5,7 @@ Notes:
 ---
 *  This was built and tested on Docker Version 19.03.5
 *  This assumes you already have Docker installed.
+*  Currently only supports builds in GCP
 
 ## Docker setup steps
 ---
