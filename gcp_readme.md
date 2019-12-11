@@ -18,3 +18,39 @@
 11. This will prompt your computer to save a new private key file.  Take note of the file name and location.   Example `gcp-se-2f3b1195299c.json`
 
 *  This new key file will be used later to provision your GCP resources from within `TERRAFORM`
+
+---
+
+#### Update Terraform Varialble Properties in this file.
+
+```
+vi /app/workshop_build_gateway/provider/gcp/var-properties.tfvars
+```
+
+##### Set these specific properties
+
+```
+owner_name = "<replace with your owner name>"
+```
+---
+
+##### Copy the Key File content into new file in this docker container
+
+1.   On your mac (from a terminal window) run `cat </path/to/keyfile/keyfilename.json>`
+2.   Copy the contents of this file to a new file inside of docker container.
+     ```
+     vi /app/workshop_build_gateway/provider/gcp/keygcp.json
+     ```
+
+
+---
+
+### Build out the GCP Environment:
+
+---
+
+```
+# run the build:
+cd /app/workshop_build_gateway
+. bin/setup.sh gcp
+```
