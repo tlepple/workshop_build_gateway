@@ -54,3 +54,15 @@ owner_name = "<replace with your owner name>"
 cd /app/workshop_build_gateway
 . bin/setup.sh gcp
 ```
+
+---
+
+### Destroy the GCP Environment:
+
+---
+
+```
+# destroy the build:
+cd /app/workshop_build_gateway
+. bin/destroy.sh gcp
+```
