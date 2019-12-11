@@ -44,17 +44,17 @@ log() {
 case "$CLOUD_PROVIDER" in
         aws)
             echo "execute aws code here... "
-	  #  . /app/jumpboxMaster/provider/aws/aws_setup.sh
+	  #  . /app/workshop_build_gateway/provider/aws/aws_setup.sh
             ;;
         azure)
            echo "execute azure code here"
-          #  . /app/jumpboxMaster/provider/azure/azure_setup.sh
+          #  . /app/workshop_build_gateway/provider/azure/azure_setup.sh
             ;;
         gcp)
            echo "execute gcp code here..."
 #             echo `pwd`
              cd ./provider/gcp
-             . /app/workshop_build_gateway/provider/gcp/assemble.sh
+             . /app/workshop_build_gateway/provider/gcp/gcp_setup.sh
             ;;
         *)
             echo "you had a different choice... is this block needed?"
