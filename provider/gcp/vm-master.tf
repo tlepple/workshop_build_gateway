@@ -4,7 +4,7 @@ resource "google_compute_address" "static" {
 
 resource "google_compute_disk" "cdsw_disk" {
     name = "${var.owner_name}-master-cdsw-disk"
-    size = 100
+    size = 20
 }
 
 resource "google_compute_instance" "master" {
@@ -20,7 +20,7 @@ resource "google_compute_instance" "master" {
     boot_disk {
         initialize_params {
             image = var.vm_image_id
-            size = 75
+            size = 15
         }
     }
 
@@ -37,4 +37,17 @@ resource "google_compute_instance" "master" {
     }
     
 
+}
+
+resource "google_compute_firewall" "allow-host-publicip" {
+
+    name    = "${var.owner_name}-allow-host-publicip"
+    network = google_compute_network.vpc_network.self_link
+
+    allow {
+        protocol = "tcp"
+        ports    = ["0-65535"]
+    }
+
+    source_ranges = [ google_compute_address.static.address ]
 }
