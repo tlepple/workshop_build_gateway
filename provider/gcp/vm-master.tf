@@ -4,7 +4,7 @@ resource "google_compute_address" "static" {
 
 resource "google_compute_disk" "cdsw_disk" {
     name = "${var.owner_name}-master-cdsw-disk"
-    size = 20
+    size = 100
 }
 
 resource "google_compute_instance" "master" {
@@ -20,7 +20,7 @@ resource "google_compute_instance" "master" {
     boot_disk {
         initialize_params {
             image = var.vm_image_id
-            size = 15
+            size = 75
         }
     }
 
