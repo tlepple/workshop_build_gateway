@@ -57,3 +57,19 @@ variable "my_publicip" {
 #variable "mypublicip_cidr" {
 #     description = "Public IP Address cidr to set for access from build host"
 #}
+
+variable "private_key_name" {
+      description ="Private SSH Key Filename"
+}
+
+variable "public_key_name" {
+      description ="Public SSH Key Filename"
+}
+
+variable "key_file_path" {
+      description = "SSH Key file path"
+}
+
+variable "cloud_username" {
+      description = "cloud provider user name"
+}

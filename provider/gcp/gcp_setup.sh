@@ -4,6 +4,7 @@
 # import parameters and utility functions 
 ###########################################################################################################
 . $starting_dir/provider/gcp/utils.sh
+. $starting_dir/provider/gcp/.env.template
 
 
 #####################################################
@@ -17,6 +18,12 @@ install_jq_cli
 install_terraform_cli
 
 #####################################################
-#       Step 3: build out GCP env
+#       Step 3: create an ssh key pair
+#####################################################
+create_key_pair
+
+#####################################################
+#       Step 4: build out GCP env
 #####################################################
 . $starting_dir/provider/gcp/assemble.sh
+

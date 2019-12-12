@@ -51,3 +51,35 @@ install_terraform_cli() {
 	log "Done installing Terraform CLI"
 
 }
+
+#####################################################
+# Function to create ssh key pair
+#####################################################
+create_key_pair() {
+
+#ssh-keygen -t rsa -b 2048 -C ${TF_VAR_cloud_username:?} -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_key_filename:?} -q -P ""
+#  chmod 0400 ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_key_filename:?} 
+	
+	if [ -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ]; then
+	  log "Key already exists: ${TF_VAR_private_key_name:?}.  Will reuse it."
+	else
+	  log "Creating the ssh key pair files..."
+	  mkdir -p ${starting_dir:?}${TF_VAR_key_file_path:?}
+	  umask 0277
+	  ssh-keygen -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} -N "" -m PEM -t rsa -b 2048
+	  chmod 0400 ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?}
+	  umask 0022 
+	  log "Private key created: ${TF_VAR_private_key_name:?}"
+	fi
+}
+
+#####################################################
+# Function to  archive ssh key pair
+#####################################################
+archive_key_pair() {
+	if [ -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ]; then
+	  log "Archiving key pair [${TF_VAR_private_key_name:?}]"
+	  mv -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ${starting_dir:?}${TF_VAR_key_file_path:?}.${TF_VAR_private_key_name:?}.OLD.$(date +%s)
+	  mv -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_public_key_name:?} ${starting_dir:?}${TF_VAR_key_file_path:?}.${TF_VAR_public_key_name:?}.OLD.$(date +%s)
+	fi
+}
