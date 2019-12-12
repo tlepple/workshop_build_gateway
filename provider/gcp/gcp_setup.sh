@@ -4,7 +4,7 @@
 # import parameters and utility functions 
 ###########################################################################################################
 . $starting_dir/provider/gcp/utils.sh
-. $starting_dir/provider/gcp/.env.template
+. $starting_dir/provider/gcp/.env
 
 
 #####################################################
