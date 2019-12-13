@@ -53,3 +53,11 @@ resource "google_compute_firewall" "allow-host-publicip" {
 
     source_ranges = [ google_compute_address.static.address ]
 }
+
+output "instance_id" {
+    value = "${google_compute_instance.master.instance_id}"
+}
+
+output "vm_elastic_ip" {
+    value = "${google_compute_address.static.address}"
+}
