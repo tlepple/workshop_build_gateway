@@ -14,3 +14,6 @@ terraform destroy -var-file var-properties.tfvars
 
 # call function to archive ssh key pair
 archive_key_pair
+
+# call the function to archive the assemble json file
+archive_assemble_json

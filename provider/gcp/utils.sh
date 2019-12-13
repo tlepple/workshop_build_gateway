@@ -83,3 +83,12 @@ archive_key_pair() {
 	  mv -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_public_key_name:?} ${starting_dir:?}${TF_VAR_key_file_path:?}.${TF_VAR_public_key_name:?}.OLD.$(date +%s)
 	fi
 }
+
+#####################################################
+# Function to  archive assemble_output.json
+#####################################################
+archive_assemble_json() {
+	if [ -f ${starting_dir:?}/provider/gcp/assemble_output.json ]; then
+	   mv -f ${starting_dir:?}/provider/gcp/assemble_output.json ${starting_dir:?}/provider/gcp/archive/.assemble_output.json.OLD.$(date +%s)
+	fi
+}
