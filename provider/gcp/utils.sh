@@ -66,7 +66,7 @@ create_key_pair() {
 	  log "Creating the ssh key pair files..."
 	  mkdir -p ${starting_dir:?}${TF_VAR_key_file_path:?}
 	  umask 0277
-	  ssh-keygen -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} -N "" -m PEM -t rsa -b 2048
+          ssh-keygen -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} -N "" -m PEM -t rsa -b 2048 -C ${TF_VAR_vm_ssh_user:?}
 	  chmod 0400 ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?}
 	  umask 0022 
 	  log "Private key created: ${TF_VAR_private_key_name:?}"

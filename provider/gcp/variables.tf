@@ -46,6 +46,10 @@ variable "vm_instance_type" {
     description = "VM Instance Type"
 }
 
+variable "vm_ssh_user" {
+    description = "VM SSH User Name"
+}
+
 variable "vm_image_id" {
     description = "Image ID"
 }

@@ -16,6 +16,9 @@ resource "google_compute_instance" "master" {
                      "project" = "personal_development"
                      "enddate" = "permanent"
                    }
+    metadata     = {
+                     ssh-keys = "${var.vm_ssh_user}:${file("/app/workshop_build_gateway${var.key_file_path}${var.public_key_name}")}" 
+                   }
  
     boot_disk {
         initialize_params {
@@ -36,7 +39,6 @@ resource "google_compute_instance" "master" {
         }
     }
     
-
 }
 
 resource "google_compute_firewall" "allow-host-publicip" {
