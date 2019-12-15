@@ -3,8 +3,7 @@
 ###########################################################################################################
 # import parameters and utility functions 
 ###########################################################################################################
-#. $starting_dir/provider/gcp/utils.sh
-. $starting_dir/provider/gcp/.env
+. $starting_dir/provider/gcp/.env.template
 
 ASSEMBLE_JSON=`cat ${starting_dir:?}/provider/gcp/assemble_output.json`
 

@@ -8,7 +8,6 @@
 # import parameters and utility functions 
 ###########################################################################################################
 . $starting_dir/provider/gcp/get_attribs.sh
-#. $starting_dir/provider/gcp/.env
 
 
 echo
