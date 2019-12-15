@@ -66,3 +66,23 @@ output "vm_private_ip" {
     value = "${google_compute_instance.master.network_interface.0.network_ip}"
 }
 
+output "vm_master_name" {
+    value = var.vm_master_name
+}
+
+output "project_name" {
+    value = var.project
+}
+
+output "owner_name" {
+    value = var.owner_name
+}
+
+output "region" {
+    value = var.region
+}
+
+output "zone" {
+    value = var.zone
+}
+

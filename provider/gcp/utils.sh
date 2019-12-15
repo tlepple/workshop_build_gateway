@@ -97,5 +97,18 @@ archive_assemble_json() {
 # Function to copy key file to a bind mount
 #####################################################
 replicate_key() {
-
+	if [ -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ]; then
+	    cp ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
+	fi
 }
+
+#####################################################
+# Function to delete key file from bind mount
+#####################################################
+delete_bind_key() {
+        if [ -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME ]; then
+            rm -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
+        fi
+}
+
+
