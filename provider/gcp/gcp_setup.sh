@@ -31,3 +31,8 @@ create_key_pair
 #       Step 5: replicate key to bind mnt
 #####################################################
 replicate_key
+
+#####################################################
+#      print connection strings 
+#####################################################
+. $starting_dir/provider/gcp/echo_conn_strings.sh
