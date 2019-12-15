@@ -109,10 +109,6 @@ replicate_key() {
 #####################################################
 delete_bind_key() {
         if [ -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME ]; then
-	    #  call some attribs variables
-	    . $starting_dir/provider/gcp/get_attribs.sh
-            rm -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
+            /bin/rm -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
         fi
 }
-
-

@@ -74,6 +74,6 @@ variable "key_file_path" {
       description = "SSH Key file path"
 }
 
-variable "cloud_username" {
-      description = "cloud provider user name"
-}
+#variable "cloud_username" {
+#      description = "cloud provider user name"
+#}

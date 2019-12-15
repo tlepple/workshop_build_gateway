@@ -10,6 +10,7 @@ export TF_VAR_my_publicip="${GET_PUBLIC_IP}"
 
 #  call the terraform build
 log "Build out GCP env via Terraform"
+terraform init
 terraform apply -var-file var-properties.tfvars
 
 # write terraform output to a json file:
