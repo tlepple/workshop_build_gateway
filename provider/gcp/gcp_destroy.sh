@@ -7,6 +7,7 @@ BASE_DIR=$(cd $(dirname $0); pwd -L)
 ###########################################################################################################
 . $starting_dir/provider/gcp/utils.sh
 . $starting_dir/provider/gcp/.env
+. $starting_dir/provider/gcp/get_attribs.sh
 
 #  call the terraform destroy
 log "Destroy GCP env build via Terraform"
@@ -17,3 +18,6 @@ archive_key_pair
 
 # call the function to archive the assemble json file
 archive_assemble_json
+
+# call the function to delete key from bind mnt
+delete_bind_key

@@ -98,6 +98,8 @@ archive_assemble_json() {
 #####################################################
 replicate_key() {
 	if [ -f ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ]; then
+	    #  call some attribs variables
+            . $starting_dir/provider/gcp/get_attribs.sh
 	    cp ${starting_dir:?}${TF_VAR_key_file_path:?}${TF_VAR_private_key_name:?} ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
 	fi
 }
@@ -107,6 +109,8 @@ replicate_key() {
 #####################################################
 delete_bind_key() {
         if [ -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME ]; then
+	    #  call some attribs variables
+	    . $starting_dir/provider/gcp/get_attribs.sh
             rm -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
         fi
 }

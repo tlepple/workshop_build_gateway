@@ -27,3 +27,7 @@ create_key_pair
 #####################################################
 . $starting_dir/provider/gcp/assemble.sh
 
+#####################################################
+#       Step 5: replicate key to bind mnt
+#####################################################
+replicate_key
