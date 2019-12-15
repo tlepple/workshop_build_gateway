@@ -92,3 +92,10 @@ archive_assemble_json() {
 	   mv -f ${starting_dir:?}/provider/gcp/assemble_output.json ${starting_dir:?}/provider/gcp/archive/.assemble_output.json.OLD.$(date +%s)
 	fi
 }
+
+#####################################################
+# Function to copy key file to a bind mount
+#####################################################
+replicate_key() {
+
+}

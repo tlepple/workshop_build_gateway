@@ -25,17 +25,17 @@ docker volume ls
 
 # create a directory in OS for bind mount:
 cd ~
-mkdir -p ./Documents/aws_scripts/docker_bind_mnt
+mkdir -p ./Documents/terraform_stuff/docker_bind_mnt
 
 # create a softlink to this directory
-sudo ln -s /Users/$USER/Documents/aws_scripts/docker_bind_mnt /macmnt
+sudo ln -s /Users/$USER/Documents/terraform_stuff/docker_bind_mnt /dockmnt
 
 # run a new docker container with this volume from centos image
 
  docker run -it \
   --name centos_terraform \
   --mount source=terraform-vol1,target=/app \
-  --mount type=bind,source=/Users/$USER/Documents/aws_scripts/docker_bind_mnt,target=/macmnt \
+  --mount type=bind,source=/Users/$USER/Documents/terraform_stuff/docker_bind_mnt,target=/dockmnt \
   centos:7 bash
   
 ```

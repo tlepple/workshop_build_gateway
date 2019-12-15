@@ -61,3 +61,8 @@ output "instance_id" {
 output "vm_elastic_ip" {
     value = "${google_compute_address.static.address}"
 }
+
+output "vm_private_ip" {
+    value = "${google_compute_instance.master.network_interface.0.network_ip}"
+}
+
