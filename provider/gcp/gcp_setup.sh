@@ -8,27 +8,32 @@
 
 
 #####################################################
-#	Step 1: install the JQ cli
+#       Step 1: install the GCP cli
+#####################################################
+install_gcp_cli
+
+#####################################################
+#	Step 2: install the JQ cli
 #####################################################
 install_jq_cli
 
 #####################################################
-#       Step 2: install the Terraform cli
+#       Step 3: install the Terraform cli
 #####################################################
 install_terraform_cli
 
 #####################################################
-#       Step 3: create an ssh key pair
+#       Step 4: create an ssh key pair
 #####################################################
 create_key_pair
 
 #####################################################
-#       Step 4: build out GCP env
+#       Step 5: build out GCP env
 #####################################################
 . $starting_dir/provider/gcp/assemble.sh
 
 #####################################################
-#       Step 5: replicate key to bind mnt
+#       Step 6: replicate key to bind mnt
 #####################################################
 replicate_key
 

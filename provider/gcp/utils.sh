@@ -106,3 +106,19 @@ replicate_key() {
 delete_bind_key() {
 	rm -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
 }
+
+#####################################################
+# Function to install gcloud cli
+#####################################################
+install_gcp_cli() {
+	cd /tmp
+	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz
+	tar -xf /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz -C /usr/local/bin
+	echo "	" >> ~/.bashrc
+	echo "# The next line updates PATH for the Google Cloud SDK." >> ~/.bashrc
+	echo "if [ -f '/usr/local/bin/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/bin/google-cloud-sdk/path.bash.inc'; fi" >> ~/.bashrc	
+	# initialize bash profile to see this add:
+	. ~/.bash_profile
+	# remove the dowloaded tmp file
+	rm -f /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz
+}
