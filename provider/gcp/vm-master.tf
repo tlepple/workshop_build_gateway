@@ -67,7 +67,7 @@ output "vm_private_ip" {
 }
 
 output "vm_master_name" {
-    value = var.vm_master_name
+    value = "${var.owner_name}-${var.vm_master_name}"
 }
 
 output "project_name" {
