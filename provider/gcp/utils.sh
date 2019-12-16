@@ -109,6 +109,11 @@ replicate_key() {
 #####################################################
 delete_bind_key() {
         if [ -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME ]; then
-            /bin/rm -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME}
+#	    . $starting_dir/provider/gcp/get_attribs.sh
+            mv -f ${BIND_MNT_TARGET}/${LV_BIND_FILENAME} ${BIND_MNT_TARGET}/.${LV_BIND_FILENAME}.OLD.$(date +%s)
+	#    echo "inside if -> bind_mnt --> ${BIND_MNT_TARGET}  bind_filename --> ${LV_BIND_FILENAME}"
+	else
+	    echo "file not found"
+	    echo "bind_mnt --> ${BIND_MNT_TARGET}  bind_filename --> ${LV_BIND_FILENAME}"
         fi
 }

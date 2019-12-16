@@ -16,8 +16,9 @@ terraform destroy -var-file var-properties.tfvars
 # call function to archive ssh key pair
 archive_key_pair
 
+# call the function to delete key from bind mnt
+delete_bind_key
+
 # call the function to archive the assemble json file
 archive_assemble_json
 
-# call the function to delete key from bind mnt
-delete_bind_key
