@@ -112,6 +112,7 @@ delete_bind_key() {
 #####################################################
 install_gcp_cli() {
 	cd /tmp
+	yum install -y wget
 	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz
 	tar -xf /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz -C /usr/local/bin
 	echo "	" >> ~/.bashrc
