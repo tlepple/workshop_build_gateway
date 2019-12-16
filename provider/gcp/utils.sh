@@ -111,9 +111,8 @@ delete_bind_key() {
 # Function to install gcloud cli
 #####################################################
 install_gcp_cli() {
-	cd /tmp
 	yum install -y wget
-	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz
+	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz -P /tmp
 	tar -xf /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz -C /usr/local/bin
 	echo "	" >> ~/.bashrc
 	echo "# The next line updates PATH for the Google Cloud SDK." >> ~/.bashrc
