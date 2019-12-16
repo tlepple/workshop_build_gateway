@@ -114,7 +114,7 @@ install_gcp_cli() {
 	log "Installing gcloud sdk..."
 	gcp_cli_version=`gcloud --version 2>&1`
 	log "Current gcloud version: $gcp_cli_version"
-	if [[ $gcp_cli_version =*"Google Cloud SDK "* ]]; then
+	if [[ $gcp_cli_version = *"Google Cloud SDK"* ]]; then
 	    log "gcloud cli already installed.  Skipping"
 	    return
 	fi
