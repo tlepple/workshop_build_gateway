@@ -111,6 +111,13 @@ delete_bind_key() {
 # Function to install gcloud cli
 #####################################################
 install_gcp_cli() {
+	log "Installing gcloud sdk..."
+	gcp_cli_version=`gcloud --version 2>&1`
+	log "Current gcloud version: $gcp_cli_version"
+	if [[ $gcp_cli_version =*"Google Cloud SDK "* ]]; then
+	    log "gcloud cli already installed.  Skipping"
+	    return
+	fi
 	yum install -y wget
 	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz -P /tmp
 	tar -xf /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz -C /usr/local/bin
@@ -121,4 +128,6 @@ install_gcp_cli() {
 	. ~/.bash_profile
 	# remove the dowloaded tmp file
 	rm -f /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz
+	log "Done installing gcloud cli"
+	
 }
