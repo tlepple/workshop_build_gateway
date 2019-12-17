@@ -34,7 +34,7 @@ owner_name = "<replace with your owner name>"
 ```
 ---
 
-##### Copy the Key File content into new file in this docker container
+##### Copy the `Key File` content into new file in this docker container
 
 1.   On your mac (from a terminal window) run `cat </path/to/keyfile/keyfilename.json>`
 2.   Copy the contents of this file to a new file inside of docker container.
