@@ -77,3 +77,33 @@ cd /app/workshop_build_gateway
 ```
 
 ---
+
+# Usefull docker command reference:
+
+```
+# list all containers on host
+docker ps -a
+
+#  start an existing container
+docker start centos_terraform
+
+# connect to command line of this container
+docker exec -it centos_terraform bash
+
+#list running container
+docker container ls -all
+
+# stop a running container
+docker container stop centos_terraform
+
+# remove a docker container
+docker container rm centos_terraform
+
+# list docker volumes
+docker volume ls
+
+# remove a docker volume
+docker volume rm terraform-vol1
+
+
+```
