@@ -11,7 +11,7 @@ BASE_DIR=$(cd $(dirname $0); pwd -L)
 
 #  call the terraform destroy
 log "Destroy GCP env build via Terraform"
-terraform destroy -var-file var-properties.tfvars
+terraform destroy -var-file var-properties.tfvars -auto-approve
 
 # call function to archive ssh key pair
 archive_key_pair
