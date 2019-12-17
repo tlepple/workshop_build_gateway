@@ -41,7 +41,7 @@ owner_name = "<replace with your owner name>"
      ```
      vi /app/workshop_build_gateway/provider/gcp/keygcp.json
      ```
-
+*  NOTE -- You only have to create the service account one time, regardless of how many times you create/destroy instances with this application.
 
 ---
 
