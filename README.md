@@ -52,7 +52,7 @@ git clone https://github.com/tlepple/workshop_build_gateway.git
 cd /app/workshop_build_gateway
 ```
 ---
-### Cloud Provider Specific Setup Steps:
+### Cloud Provider Specific Setup / Terminate Steps:
 ---
 
 | Provider         | Readme Document  |
