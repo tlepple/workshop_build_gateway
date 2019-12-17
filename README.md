@@ -58,6 +58,7 @@ cd /app/workshop_build_gateway
 | Provider         | Readme Document  |
 | ---------------- | ---------------- |
 | GCP              | [Setup Steps](./gcp_readme.md)|
+| GCP              | [Terminate Steps](./gcp_terminate_readme.md)|
 
 ---
 
