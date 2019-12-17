@@ -128,6 +128,8 @@ install_gcp_cli() {
 	. ~/.bash_profile
 	# remove the dowloaded tmp file
 	rm -f /tmp/google-cloud-sdk-273.0.0-linux-x86_64.tar.gz
+	# activate the service account
+	gcloud auth activate-service-account --key-file "$starting_dir/provider/gcp/keygcp.json"
 	log "Done installing gcloud cli"
 	
 }
