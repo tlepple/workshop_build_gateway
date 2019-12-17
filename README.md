@@ -52,7 +52,7 @@ git clone https://github.com/tlepple/workshop_build_gateway.git
 cd /app/workshop_build_gateway
 ```
 ---
-### Cloud Provider Specific Steps:
+### Cloud Provider Specific Setup Steps:
 ---
 
 | Provider         | Readme Document  |
@@ -61,3 +61,18 @@ cd /app/workshop_build_gateway
 
 ---
 
+###  Start / Stop an existing instance with a provider:
+
+---
+
+```
+# Example Start:  
+cd /app/workshop_build_gateway
+. bin/start_instance.sh <aws | azure | gcp>
+
+# Example Stop:  
+cd /app/workshop_build_gateway
+. bin/stop_instance.sh <aws | azure | gcp>
+```
+
+---
