@@ -38,6 +38,29 @@ resource "google_compute_instance" "master" {
             nat_ip = google_compute_address.static.address
         }
     }
+     metadata_startup_script = <<EOF
+        echo "checking status of SElinux..."
+        if [ getenforce != Disabled ]; then
+            setenforce 0
+            sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+            sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config
+        fi
+
+        echo "disabling huge page support"
+        if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+            echo never > /sys/kernel/mm/transparent_hugepage/enabled
+        fi
+        if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
+            echo never > /sys/kernel/mm/transparent_hugepage/defrag
+        fi
+
+        # check for swappiness 
+	echo "checking swappines..."
+        if [ `cat /proc/sys/vm/swappiness` != 10 ]; then
+            sysctl vm.swappiness=10
+        fi
+
+    EOF
     
 }
 
