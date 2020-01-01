@@ -23,7 +23,7 @@ resource "google_compute_instance" "master" {
     boot_disk {
         initialize_params {
             image = var.vm_image_id
-            size = 75
+            size = 150
         }
     }
 
