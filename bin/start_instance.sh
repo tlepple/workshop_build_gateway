@@ -49,6 +49,8 @@ case "$CLOUD_PROVIDER" in
            echo "execute gcp code here..."
 #             echo `pwd`
 #             cd ./provider/gcp
+#	Set some variables:
+	     . $starting_dir/provider/gcp/get_attribs.sh
              . /app/workshop_build_gateway/provider/gcp/gcp_start_instance.sh
             ;;
         *)
