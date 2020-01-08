@@ -16,6 +16,9 @@
 9.  In this screen, leave everything as the default but do click the `+ CREATE KEY` button.
 10. In the pop-up screen, choose a 'key type' of `JSON` and click the `CREATE` button.
 11. This will prompt your computer to save a new private key file.  Take note of the file name and location.   Example `gcp-se-2f3b1195299c.json`
+12. Need to add permissions now.   From the IAM Home page, search for your new service account.  Example `tlepple@gcp-se.iam.gserviceaccount.com`
+13. Select your account and at top of screen ensure that `PERMISSIONS` is selected and then click icon `+ADD`.
+14. In the pop-up window choose the drop down box `Select a role` and then choose `Project` and then choose `Editor` and click the `Save` button.
 
 *  This new key file will be used later to provision your GCP resources from within `TERRAFORM`
 
