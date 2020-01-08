@@ -13,6 +13,7 @@ echo "Current run state is: " ${RUN_STATE}
 
 if [ ${RUN_STATE} == "TERMINATED" ]; then
     gcloud compute instances start ${LV_VM_MASTER_NAME} --zone=${LV_ZONE} --project ${LV_PROJECT_NAME}
+    gcloud compute instances start ${LV_VM_CDPDC_NAME} --zone=${LV_ZONE} --project ${LV_PROJECT_NAME}
     #  call the connection strings script:
     echo
     echo

@@ -1,14 +1,10 @@
-resource "google_compute_address" "static" {
-    name = "${var.owner_name}-master-static-address"
+resource "google_compute_address" "cdp-dc-static" {
+    name = "${var.owner_name}-cdp-dc-static-address"
 }
 
-resource "google_compute_disk" "cdsw_disk" {
-    name = "${var.owner_name}-master-cdsw-disk"
-    size = 100
-}
 
-resource "google_compute_instance" "master" {
-    name         = "${var.owner_name}-${var.vm_master_name}"
+resource "google_compute_instance" "cdp-dc" {
+    name         = "${var.owner_name}-cdp-dc"
     machine_type = var.vm_instance_type
     tags         = ["master"]
     labels       = { 
@@ -27,15 +23,12 @@ resource "google_compute_instance" "master" {
         }
     }
 
-    attached_disk {
-        source = google_compute_disk.cdsw_disk.name
-    }
 
     network_interface {
         network            = google_compute_network.vpc_network.name
         subnetwork         = google_compute_subnetwork.vpc_subnet.name
         access_config {
-            nat_ip = google_compute_address.static.address
+            nat_ip = google_compute_address.cdp-dc-static.address
         }
     }
      metadata_startup_script = <<EOF
@@ -64,48 +57,20 @@ resource "google_compute_instance" "master" {
     
 }
 
-resource "google_compute_firewall" "allow-host-publicip" {
 
-    name    = "${var.owner_name}-allow-host-publicip"
-    network = google_compute_network.vpc_network.self_link
-
-    allow {
-        protocol = "tcp"
-        ports    = ["0-65535"]
-    }
-
-    source_ranges = [ google_compute_address.static.address, google_compute_address.cdp-dc-static.address ]
+output "cdpdc_instance_id" {
+    value = "${google_compute_instance.cdp-dc.instance_id}"
 }
 
-output "instance_id" {
-    value = "${google_compute_instance.master.instance_id}"
+output "vm_cdpdc_elastic_ip" {
+    value = "${google_compute_address.cdp-dc-static.address}"
 }
 
-output "vm_elastic_ip" {
-    value = "${google_compute_address.static.address}"
+output "vm_cdpdc_private_ip" {
+    value = "${google_compute_instance.cdp-dc.network_interface.0.network_ip}"
 }
 
-output "vm_private_ip" {
-    value = "${google_compute_instance.master.network_interface.0.network_ip}"
-}
-
-output "vm_master_name" {
-    value = "${var.owner_name}-${var.vm_master_name}"
-}
-
-output "project_name" {
-    value = var.project
-}
-
-output "owner_name" {
-    value = var.owner_name
-}
-
-output "region" {
-    value = var.region
-}
-
-output "zone" {
-    value = var.zone
+output "vm_cdpdc_name" {
+    value = "${var.owner_name}-cdp-dc"
 }
 
